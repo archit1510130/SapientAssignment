@@ -1,0 +1,19 @@
+{
+  "name": "sapient",
+  "version": "1.0.0",
+  "description": "AssignMennt for Sapient",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/archit1510130/SapientAssignment.git"
+  },
+  "author": "Archit",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/archit1510130/SapientAssignment/issues"
+  },
+  "homepage": "https://github.com/archit1510130/SapientAssignment#readme"
+}
