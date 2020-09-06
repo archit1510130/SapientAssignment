@@ -39,5 +39,6 @@ Other Improvement Ideas:
 1. We can Split code in chunks based on our requiremtns  by using Suspense and React Lazy.
 2. We can Implement Error Boundary Component also although I did not do because of time constraint .
 3 For Images we shoudl use SVG as I read somewhere that by importing them as react component they will give faster rendering .
+4. SSR at very first rendering would definitely going to boom the performance . We can implement SSR using some Java Script framework like Next js or React It self support SSR.
 
 
