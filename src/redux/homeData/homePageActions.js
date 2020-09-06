@@ -27,6 +27,25 @@ export const setLaunchYear=(year)=>{
   }
 }
 
+export const setLaunchSuccess=(launch_success)=>{
+  return {
+    type:"SET_LAUNCH_SUCCESS",
+    payload:launch_success,
+  }
+}
+export const setLandSuccess=(land_success)=>{
+  return {
+    type:"SET_LAND_SUCCESS",
+    payload:land_success,
+  }
+}
+
+export const resetAfterFiler=()=>{
+  return{
+    type:"RESET_FILTER_DATA"
+  }
+}
+
 
 export const fetchDefaultData =(launch_success,land_success,year) => {
 
@@ -58,7 +77,7 @@ export const fetchDefaultData =(launch_success,land_success,year) => {
   .fill()
   .map(_ => data.splice(0, 3))
 
-
+        dispatch(resetAfterFiler());
           dispatch(getDefaultDataSuccess(result))
         })
         .catch(error => {

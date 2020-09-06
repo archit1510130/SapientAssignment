@@ -5,30 +5,25 @@ import * as actions from '../redux/homeData/homePageActions';
 import Button from 'react-bootstrap/Button';
 
 class filterComponent extends Component {
-  constructor(props)
-  {
-    super();
-    this.state={
-        launchYear:'',
-        launchSuccess:'',
-        landSuccess:'',
-    }
-
-  }
 
   handleClick=(e)=>{
 
-    this.setState({
-    [e.target.name]:e.target.value
-    })
+    if(e.target.name==='landSuccess')
+    this.props.dispatch(actions.setLandSuccess(e.target.value))
+
+    if(e.target.name==='launchSuccess')
+    this.props.dispatch(actions.setLaunchSuccess(e.target.value))
+
+    if(e.target.name==='launchYear')
+    this.props.dispatch(actions.setLaunchYear(e.target.value))
+
 
   }
 
 
   handleonSubmit=()=>{
 
-  
-    this.props.dispatch(actions.fetchDefaultData(this.state.launchSuccess,this.state.landSuccess,this.state.launchYear))
+    this.props.dispatch(actions.fetchDefaultData(this.props.launchSuccess,this.props.landSuccess,this.props.launchYear))
 
   }
   render() {
@@ -64,10 +59,20 @@ class filterComponent extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    data: state.home.data,
+    launchSuccess:state.home.launchSuccess,
+    launchYear:state.home.launchYear,
+    landSuccess:state.home.landSuccess
+
+  }
+}
 const mapDispatchToProps = dispatch => {
   return {
     dispatch:dispatch 
     
   }
 }
-export default connect(null,mapDispatchToProps)(filterComponent);
+export default connect(mapStateToProps,mapDispatchToProps)(filterComponent);
