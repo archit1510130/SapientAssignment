@@ -24,11 +24,26 @@ export const fetchDefaultData = () => {
     return (dispatch) => {
       dispatch(getDefaultDataRequest())
       axios
-        .get('https://jsonplaceholder.typicode.com/users')
+        .get('https://api.spacexdata.com/v3/launches?limit=100')
         .then(response => {
-          // response.data is the users
-          const users = response.data
-          dispatch(getDefaultDataSuccess(users))
+          let data = response.data
+          data=data.map(obj=>{
+
+           const {flight_number,mission_id,launch_success,mission_name,links,launch_year,
+           }=obj
+            let robj={flight_number,mission_id,launch_success,mission_name,links,launch_year}
+            return robj;
+        })
+
+        const result = new Array(Math.ceil(data.length / 3))
+  .fill()
+  .map(_ => data.splice(0, 3))
+
+
+
+         
+          
+          dispatch(getDefaultDataSuccess(result))
         })
         .catch(error => {
           // error.message is the error message

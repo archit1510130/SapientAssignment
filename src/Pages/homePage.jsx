@@ -7,10 +7,27 @@ import Button from "react-bootstrap/Button";
 import LaunchYearRow from "../components/customComponents/LaunchYearRow";
 import FilterComponent from "../components/filterComponent";
 import ShowInfo from '../components/showInfo';
+import { connect } from 'react-redux'
+import * as actions from '../redux/homeData/homePageActions';
 
 
 class homePage extends Component {
+
+  constructor(props)
+  {
+    super();
+
+  }
+
+  componentWillMount=()=>{
+    this.props.getDefault()
+
+  }
+
   render() {
+    let data=this.props.data
+
+    
     return (
       <>
         <div className="container mt-5">
@@ -18,8 +35,12 @@ class homePage extends Component {
             <FilterComponent></FilterComponent>
             <div class="col-md-9  sm-12" style={{ backgroundColor: "#F0F0F0" }}>
 
-              <ShowInfo></ShowInfo>
-              <ShowInfo></ShowInfo>
+
+            {data.map((data) => (
+          <ShowInfo data={data} />
+        ))}
+              
+              
 
             </div>
           </div>
@@ -29,4 +50,22 @@ class homePage extends Component {
   }
 }
 
-export default homePage;
+
+const mapStateToProps = state => {
+  return {
+    data: state.home.data
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getDefault: () => dispatch(actions.fetchDefaultData())
+  }
+}
+
+
+
+
+
+
+export default connect(mapStateToProps,mapDispatchToProps) (homePage);
