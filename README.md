@@ -33,6 +33,8 @@ Please refer to this screen shot:
 
 2. I have used central state management system that is redux with some middleware as Thunk and logger.
 
+3 . My main focus was on Minimum Re rendering of components , I have written the code in way also .So I did not extra care of Styling part.  
+
 
 Other Improvement Ideas:
 
@@ -40,5 +42,6 @@ Other Improvement Ideas:
 2. We can Implement Error Boundary Component also although I did not do because of time constraint .
 3 For Images we shoudl use SVG as I read somewhere that by importing them as react component they will give faster rendering .
 4. SSR at very first rendering would definitely going to boom the performance . We can implement SSR using some Java Script framework like Next js or React It self support SSR.
+5 . using PURE Component idea is also sometime improve the performance metric.
 
 
