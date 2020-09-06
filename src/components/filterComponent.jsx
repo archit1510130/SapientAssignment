@@ -30,8 +30,8 @@ class filterComponent extends Component {
     console.log(this.state)
     return (
       <>
-        <div class="col-md-3 sm-12 bg-grey">
-          <div>
+        <div class="col-md-3 sm-12 bg-grey" style={{"backgroundColor":"#F0F0F0"}} >
+          <div style={{"padding":"10%","marginTop":"10%","marginBottom":"10%","backgroundColor":"white"}} >
             <h5>Launch Year</h5>
             <LaunchYearRow name={'launchYear'} key={1} onClick={this.handleClick} val1={2006} val2={2007} ></LaunchYearRow>
             <LaunchYearRow name={'launchYear'}key={2}  onClick={this.handleClick} val1={2008} val2={2009}></LaunchYearRow>
@@ -42,12 +42,12 @@ class filterComponent extends Component {
             <LaunchYearRow name={'launchYear'} key={7}  onClick={this.handleClick} val1={2018} val2={2019}></LaunchYearRow>
           </div>
       <br></br>
-          <div>
+          <div  style={{"padding":"10%","marginTop":"10%","marginBottom":"10%","backgroundColor":"white"}}>
             <h5>Successfull Launch</h5>
             <LaunchYearRow name={'launchSuccess'} key={8}  onClick={this.handleClick}  val1={"False"} val2={"True"} ></LaunchYearRow>
           </div>
           <br></br>
-          <div>
+          <div style={{"padding":"10%","marginTop":"10%","marginBottom":"10%","backgroundColor":"white"}}>
             <h5>Successfull Landing</h5>
             <LaunchYearRow  name={'landSuccess'} key={10}  onClick={this.handleClick}  val1={"False"} val2={"True"} ></LaunchYearRow>
           </div>
