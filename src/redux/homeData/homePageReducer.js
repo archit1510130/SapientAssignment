@@ -1,7 +1,8 @@
 const initialState = {
     loading: false,
     data: [],
-    error: ''
+    error: '',
+    launchYear:'',
   }
   
   const reducer = (state = initialState, action) => {
@@ -9,7 +10,8 @@ const initialState = {
       case "GET_DEFAULT_DATA_REQUEST":
         return {
           ...state,
-          loading: true
+          loading: true,
+          data:[]
         }
       case "GET_DEFAULT_DATA_SUCCESS":
         return {
@@ -23,6 +25,11 @@ const initialState = {
           data: [],
           error: action.payload
         }
+
+        case "SET_LAUNCH_YEAR":
+          return {
+            launchYear: action.payload
+          }
       default: return state
     }
   }

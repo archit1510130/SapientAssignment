@@ -1,4 +1,5 @@
 import axios from 'axios';
+import store from '../store';
 export const getDefaultDataRequest=()=>{
     return {
         type:"GET_DEFAULT_DATA_REQUEST",
@@ -19,13 +20,31 @@ export const getDefaultDataError=(error)=>{
     }
 }
 
+export const setLaunchYear=(year)=>{
+  return {
+    type:"SET_LAUNCH_YEAR",
+    payload:year,
+  }
+}
 
-export const fetchDefaultData = () => {
+
+export const fetchDefaultData =(launch_success,land_success,year) => {
+
+    // I did as because end point doest seem in working with axios +params
+   launch_success=launch_success?`&amp;launch_success=${launch_success}`:""
+   land_success=land_success?`&amp;land_success=${land_success}`:""
+   year=year?`&amp;launch_year=${year}`:""
+
     return (dispatch) => {
       dispatch(getDefaultDataRequest())
+      console.log("in Action")
+      console.log(launch_success,land_success,year)
+     
       axios
-        .get('https://api.spacexdata.com/v3/launches?limit=100')
-        .then(response => {
+        .get('https://api.spacexdata.com/v3/launches?limit=100'+launch_success+land_success+year
+          
+         )
+        .then(response => { 
           let data = response.data
           data=data.map(obj=>{
 
@@ -40,9 +59,6 @@ export const fetchDefaultData = () => {
   .map(_ => data.splice(0, 3))
 
 
-
-         
-          
           dispatch(getDefaultDataSuccess(result))
         })
         .catch(error => {

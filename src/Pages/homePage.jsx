@@ -20,6 +20,8 @@ class homePage extends Component {
   }
 
   componentWillMount=()=>{
+
+    console.log("Conponet Called")
     this.props.getDefault()
 
   }
