@@ -10,6 +10,8 @@ class showInfo extends Component {
     }
     render() {
         let data=this.props.data
+        console.log("jhere dfata")
+        console.log(data)
         return (
             < >
                

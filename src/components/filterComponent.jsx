@@ -3,6 +3,7 @@ import LaunchYearRow from "./customComponents/LaunchYearRow";
 import { connect } from 'react-redux';
 import * as actions from '../redux/homeData/homePageActions';
 import Button from 'react-bootstrap/Button';
+import { withRouter } from "react-router";
 
 
 class filterComponent extends Component {
@@ -39,21 +40,20 @@ class filterComponent extends Component {
     if(e.target.name==='launchYear')
     {
       this.props.dispatch(actions.setLaunchYear(e.target.value,e.target.value ))
-      console.log(year)
+      
       year=e.target.value
-      console.log(year)
+      
      
     }
-    console.log("before filer")
-    console.log(year,launch,land)
+   
     this.setState({
       year:year,
       land:land,
       launch:launch
-    },this.props.dispatch(actions.fetchDefaultData(this.state.launch,this.state.land,this.state.year)))
+    },()=>{this.props.dispatch(actions.fetchDefaultData(this.state.launch,this.state.land,this.state.year))
+      this.props.history.push(`search?land_success=${this.state.land}&launch_year=${this.state.year}&launch_success=${this.state.launch}&limit=100`)})
 
 
-    
 
 
   }
@@ -108,4 +108,4 @@ const mapDispatchToProps = dispatch => {
     
   }
 }
-export default connect(mapStateToProps,mapDispatchToProps)(filterComponent);
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(filterComponent));

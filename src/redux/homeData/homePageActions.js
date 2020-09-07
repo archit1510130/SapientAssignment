@@ -69,8 +69,7 @@ export const fetchDefaultData =(launch_success,land_success,year) => {
 
     return (dispatch) => {
       dispatch(getDefaultDataRequest())
-      console.log("in Action")
-      console.log(launch_success,land_success,year)
+     
      
       axios
         .get('https://api.spacexdata.com/v3/launches',{
@@ -87,17 +86,12 @@ export const fetchDefaultData =(launch_success,land_success,year) => {
             let robj={flight_number,mission_id,launch_success,mission_name,links,launch_year}
             return robj;
         })
-        console.log(data)
+        
         let result = new Array(Math.ceil(data.length / 4))
   .fill()
   .map(_ => data.splice(0, 4))
 
-  
-
-        
-
-
-        // dispatch(resetAfterFiler());
+         dispatch(resetAfterFiler());
           dispatch(getDefaultDataSuccess(result))
         })
         .catch(error => {

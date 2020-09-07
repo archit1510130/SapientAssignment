@@ -36,7 +36,7 @@ class homePage extends Component {
         <h2 class="pl-2 head">SpaceX Launch Programs</h2>
           <div class="row">
             <FilterComponent></FilterComponent>
-            <div class="col-lg-9 col-xl-10 col-md-8 col-sm-12  mb-3" style={{ backgroundColor: "#F0F0F0" }}>
+            <div class="col-lg-9 col-xl-10 col-md-8 col-sm-12" style={{ backgroundColor: "#F0F0F0" }}>
 
           <div class="row">
             {data.map((data) => (
