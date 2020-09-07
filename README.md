@@ -23,12 +23,7 @@ Comments Over Light House Report:
 
 Features ->
 
-1. After you applied filters , without refereshing the whole page result would be updated and URL is changing also but there is one flaw in GIVEN API END POINTS For Filters is that its not actually giving desired output .
-
-Please refer to this screen shot:
-
-![Screenshot from 2020-09-07 00-34-14](https://user-images.githubusercontent.com/25228724/92333283-e7591f80-f0a1-11ea-864d-7f58403df99c.png)
-( I have applied the filters but result are not filterd , in first line you can see LAUNCH YEAR is still 2006 but filter is for 2014)
+1. After you applied filters , without refereshing the whole page result would be updated and URL is changing also.
 
 
 2. I have used central state management system that is redux with some middleware as Thunk and logger.
