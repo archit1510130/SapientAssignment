@@ -1,0 +1,44 @@
+.year {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2%;
+    
+}
+
+.text-center {
+    text-align: center!important;
+    
+}
+
+body, div, a, p, span {
+    user-select: text !important;
+    
+
+
+}
+
+filter p {
+    border-bottom: 1px solid #ddd;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    font-weight: 600;
+}
+
+.btn-primary {
+    color:black;
+    
+     border-color: black !important; 
+ 
+}
+.filter .btn {
+ 
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: auto;
+    color:black;
+    background-color: #c5e09b;
+   
+}

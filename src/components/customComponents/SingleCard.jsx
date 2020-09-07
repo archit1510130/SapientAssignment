@@ -12,10 +12,11 @@ class SingleCard extends Component {
       let launch =(this.props.data.launch_success)
         return (
             <>
-            <Card>
-         <div className="p-3">
-        <Card.Img variant="top" style={{"backgroundColor":"#F0F0F0"}} src={this.props.image} /> 
+            <Card class="card mb-2">
+       
+
          <Card.Body>
+         <Card.Img class="card-img-top mb-2" variant="top" style={{"backgroundColor":"#F0F0F0"}} src={this.props.image} /> 
         <Card.Title  style={{"color":"#191970"}} ><b>{this.props.data.mission_name +" "+this.props.data.flight_number}</b></Card.Title>
           <span><b>Mission Ids:</b> </span>
          
@@ -28,7 +29,7 @@ class SingleCard extends Component {
         <br></br>
         <span><b>Successfull Launch: </b> </span> <span style={{"color":"#4f86f7"}} > {launch?"True":"False"}</span> 
         </Card.Body>
-        </div>
+     
   
     </Card>
             </>

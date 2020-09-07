@@ -13,12 +13,13 @@ class showInfo extends Component {
         return (
             < >
                
-               <CardDeck className="mt-4">
+               <div class="col-lg-4 col-xl-3 col-md-6 col-sm-12">
 
                {data.map((data) => (
           <SingleCard data={data}image={data.links.mission_patch} />
         ))}
-              </CardDeck>
+        </div>
+              
                 
             </>
         );

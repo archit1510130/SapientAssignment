@@ -5,6 +5,10 @@ const initialState = {
     launchYear:'',
     launchSuccess:'',
     landSuccess:'',
+    yearActive:false,
+    successActive:false,
+    landActive:false,
+    
   }
   
   const reducer = (state = initialState, action) => {
@@ -33,19 +37,23 @@ const initialState = {
         case "SET_LAUNCH_YEAR":
           return {
             ...state,
-            launchYear: action.payload
+            launchYear: action.payload,
+            yearActive:action.yearActive,
+
           }
 
           case "SET_LAUNCH_SUCCESS":
             return {
               ...state,
-              launchSuccess: action.payload
+              launchSuccess: action.payload,
+              successActive:action.successActive,
             }
 
             case "SET_LAND_SUCCESS":
               return {
                 ...state,
-                landSuccess: action.payload
+                landSuccess: action.payload,
+                landActive:action.landActive,
               }
 
               case "RESET_FILTER_DATA":

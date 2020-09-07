@@ -20,23 +20,26 @@ export const getDefaultDataError=(error)=>{
     }
 }
 
-export const setLaunchYear=(year)=>{
+export const setLaunchYear=(year,yearActive)=>{
   return {
     type:"SET_LAUNCH_YEAR",
     payload:year,
+    yearActive:yearActive
   }
 }
 
-export const setLaunchSuccess=(launch_success)=>{
+export const setLaunchSuccess=(launch_success,launchActive)=>{
   return {
     type:"SET_LAUNCH_SUCCESS",
     payload:launch_success,
+    successActive:launchActive
   }
 }
-export const setLandSuccess=(land_success)=>{
+export const setLandSuccess=(land_success,landActive)=>{
   return {
     type:"SET_LAND_SUCCESS",
     payload:land_success,
+    landActive:landActive
   }
 }
 
@@ -50,9 +53,19 @@ export const resetAfterFiler=()=>{
 export const fetchDefaultData =(launch_success,land_success,year) => {
 
     // I did as because end point doest seem in working with axios +params
-   launch_success=launch_success?`&amp;launch_success=${launch_success}`:""
-   land_success=land_success?`&amp;land_success=${land_success}`:""
-   year=year?`&amp;launch_year=${year}`:""
+
+   let param={limit:100}
+
+   if(launch_success)
+      param['launch_success']=launch_success
+
+    if(land_success)
+      param['land_success']=land_success
+
+      if(year)
+      param['launch_year']=year
+
+    
 
     return (dispatch) => {
       dispatch(getDefaultDataRequest())
@@ -60,7 +73,9 @@ export const fetchDefaultData =(launch_success,land_success,year) => {
       console.log(launch_success,land_success,year)
      
       axios
-        .get('https://api.spacexdata.com/v3/launches?limit=100'+launch_success+land_success+year
+        .get('https://api.spacexdata.com/v3/launches',{
+          params:param
+        }
           
          )
         .then(response => { 
@@ -72,12 +87,17 @@ export const fetchDefaultData =(launch_success,land_success,year) => {
             let robj={flight_number,mission_id,launch_success,mission_name,links,launch_year}
             return robj;
         })
-
-        const result = new Array(Math.ceil(data.length / 3))
+        console.log(data)
+        let result = new Array(Math.ceil(data.length / 4))
   .fill()
-  .map(_ => data.splice(0, 3))
+  .map(_ => data.splice(0, 4))
 
-        dispatch(resetAfterFiler());
+  
+
+        
+
+
+        // dispatch(resetAfterFiler());
           dispatch(getDefaultDataSuccess(result))
         })
         .catch(error => {

@@ -1,26 +1,19 @@
 import React, { Component } from 'react';
 import Button from 'react-bootstrap/Button';
+import '../customComponents/custom.css';
 
-class LaunchYearRow extends Component {
-
-    constructor(props)
-    {
-      super();
-  
-    }
-    
-    render() {
+const LaunchYearRow=(props)=> {
         return (
-            <div class="row mt-3">
-            <div class="col-5 ">
-            <Button  name={this.props.name}  id={this.props.val1} value ={this.props.val1} onClick ={this.props.onClick} size='sm' variant="outline-success">{this.props.val1}</Button>
+            <div class="year text-center">
+            <div class="year-container">
+            <Button  active={props.active==props.val1?true:false} class="btn mb-1" name={props.name}  id={props.val1} value ={props.val1} onClick ={props.onClick} size='sm' >{props.val1}</Button>
             </div>
             <div class="col-4">
-            <Button   name={this.props.name} id={this.props.val2}  value={this.props.val2}onClick={this.props.onClick} size='sm' variant="outline-success">{this.props.val2}</Button>{''}
+            <Button  active={props.active==props.val2?true:false}  class="btn mb-1" name={props.name} id={props.val2}  value={props.val2}onClick={props.onClick} size='sm'>{props.val2}</Button>{''}
             </div>
           </div>
         );
-    }
+    
 }
 
 export default LaunchYearRow;

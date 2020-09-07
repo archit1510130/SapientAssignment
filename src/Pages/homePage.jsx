@@ -32,15 +32,17 @@ class homePage extends Component {
     
     return (
       <>
-        <div className="container mt-5">
+        <div className="container-fluid ">
+        <h2 class="pl-2 head">SpaceX Launch Programs</h2>
           <div class="row">
             <FilterComponent></FilterComponent>
-            <div class="col-md-9  sm-12" style={{ backgroundColor: "#F0F0F0" }}>
+            <div class="col-lg-9 col-xl-10 col-md-8 col-sm-12  mb-3" style={{ backgroundColor: "#F0F0F0" }}>
 
-
+          <div class="row">
             {data.map((data) => (
           <ShowInfo data={data} />
         ))}
+        </div>
               
               
 
